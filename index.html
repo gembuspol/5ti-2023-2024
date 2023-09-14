@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabele</title>
+</head>
+<body>
+    <header>
+        Strona planu lekcji
+    </header>
+    <section class="tabelka">
+        <table>
+            <thead>
+                <tr>
+                    <th>
+                        Numer godziny lekcyjnej	
+                    </th>
+                    <th>
+                        Godziny
+                    </th>
+                    <th>
+                        Przedmiot
+                    </th>
+                    <th>
+                      Nauczyciel  
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        0.
+                    </td>
+                    <td>
+                        07:10 - 07:55
+                    </td>	
+                    <td>
+                        	Wychowanie fizyczne,
+                    </td>
+                    <td>
+                        Kurpis Ewa  s. 
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        1.
+                    </td>
+                    <td>
+                        08:00 - 08:45
+                    </td>	
+                    <td>
+                        Język angielski
+                    </td>
+                    <td>
+                        Czakon Bożena
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        2.
+                    </td>
+                    <td>
+                        08:50 - 09:35
+                    </td>	
+                    <td>
+                        	Wychowanie fizyczne,
+                    </td>
+                    <td>
+                        Kurpis Ewa  s. 
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        3.
+                    </td>
+                    <td>
+                        09:40 - 10:25
+                    </td>	
+                    <td>
+                        Aplikacje desktopowe i mobilne
+                    </td>
+                    <td>
+                        Gembalczyk Przemysław
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        4.
+                    </td>
+                    <td>
+                        08:50 - 09:35
+                    </td>	
+                    <td>
+                        	Język polski
+                    </td>
+                    <td>
+                        Bek Ewa 
+                    </td>
+                </tr>
+            </tbody>
+        </table>		
+
+    </section>
+    <section class="przyciski">
+        <script>
+            function zmienTlo(f){
+                document.bgColor=f.tlo[f.tlo.selectedIndex].value;
+            }
+
+        </script>
+        <form>
+            <select name="tlo" onchange="zmienTlo(this.form)">
+                <option value="white">biały</option>
+                <option value="green">zielony</option>
+                <option value="red">czerwony</option>
+                <option value="pink">różowy</option>
+            </select>
+        </form>
+    </section>
+    <footer>
+        <p>Stronę wykonał Przemek Gembalczyk</p>
+    </footer>
+    
+</body>
+</html>
