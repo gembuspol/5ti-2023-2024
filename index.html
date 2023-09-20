@@ -10,7 +10,7 @@
         Strona planu lekcji
     </header>
     <section class="tabelka">
-        <table>
+        <table id="tabela">
             <thead>
                 <tr>
                     <th>
@@ -107,7 +107,11 @@
             function zmienTlo(f){
                 document.bgColor=f.tlo[f.tlo.selectedIndex].value;
             }
-
+            function zmienTloTabela(f){
+                tabelka=document.getElementById("tabela")
+                tabelka.style.background=f.tlotabela[f.tlotabela.selectedIndex].value;
+                //='hsl(200,100%,50%)';
+            }
         </script>
         <form>
             <select name="tlo" onchange="zmienTlo(this.form)">
@@ -117,6 +121,17 @@
                 <option value="pink">różowy</option>
             </select>
         </form>
+        <br>
+        <p>Wybieranie koloru tabeli
+        <form>
+            <select name="tlotabela" onchange="zmienTloTabela(this.form)">
+                <option value="white">biały</option>
+                <option value="yellow">żółty</option>
+                <option value="blue">niebieski</option>
+                
+            </select>
+        </form>
+        </p>
     </section>
     <footer>
         <p>Stronę wykonał Przemek Gembalczyk</p>
