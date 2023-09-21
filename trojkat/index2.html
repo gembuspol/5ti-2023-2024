@@ -6,12 +6,28 @@
     <title>Document</title>
 </head>
 <body>
+    <script>
+        function trojkat(){
+            let bok1=parseFloat(document.getElementById("bok1").value);
+            let bok2=parseFloat(document.getElementById("bok2").value);
+            let bok3=parseFloat(document.getElementById("bok3").value);
+            if((bok1+bok2>bok3) && (bok1+bok3>bok2) && (bok2+bok3>bok1)){
+                alert("Spełnione warunki trójkąta");
+                let p=(bok1+bok2+bok3)/2;
+                let pole=Math.sqrt(p*(p-bok1)*(p-bok2)*(p-bok3));
+                document.getElementById("wynik").value=pole;
+            }else{
+                alert(" Z podanych boków nie sposób utworzyć trójkąta!");
+                document.getElementById("wynik").value=" Z podanych boków nie sposób utworzyć trójkąta!";
+            }
+        }
+    </script>
     <h1>Oblicz pole trojkata</h1>
     
     <input type="number" id="bok1" placeholder="Podaj dlugosc boku 1">
     <input type="number" id="bok2" placeholder="Podaj dlugosc boku 2">
     <input type="number" id="bok3" placeholder="Podaj dlugosc boku 3">
-    <button type="button">Oblicz</button>
+    <button type="button" onclick="trojkat()">Oblicz</button>
     <output id="wynik"></output>
 
 
