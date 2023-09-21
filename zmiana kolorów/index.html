@@ -112,6 +112,10 @@
                 tabelka.style.background=f.tlotabela[f.tlotabela.selectedIndex].value;
                 //='hsl(200,100%,50%)';
             }
+            function zmienTloTabela2Wiersz(f){
+                tabelka=document.getElementById("tabela")
+                tabelka.rows[1].style.background=f.tlotabelaWiersz[f.tlotabelaWiersz.selectedIndex].value;
+            }
         </script>
         <form>
             <select name="tlo" onchange="zmienTlo(this.form)">
@@ -132,6 +136,16 @@
             </select>
         </form>
         </p>
+        <p>Wybieranie koloru drugiego wiersza tabeli
+            <form>
+                <select name="tlotabelaWiersz" onchange="zmienTloTabela2Wiersz(this.form)">
+                    <option value="violet">fioletowy</option>
+                    <option value="yellow">żółty</option>
+                    <option value="green">zielony</option>
+                    
+                </select>
+            </form>
+            </p>
     </section>
     <footer>
         <p>Stronę wykonał Przemek Gembalczyk</p>
