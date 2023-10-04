@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Generator Liczb</title>
+</head>
+<body>
+    <h1>Generator Liczb</h1>
+    <label for="min">Wartość min:</label>
+    <input type="number" id="min" name="min" />
+    <br/>
+    <label for="max">Wartość max:</label>
+    <input type="number" id="max" name="max" />
+    <br/>
+    <button onclick="wylosujLiczby()">Wylosuj z zakresu</button>
+    <br/>
+    <output id="liczbyZakres"></output>
+
+    <script>
+        function wylosujLiczby() {
+            const min = parseInt(document.getElementById("min").value);
+            const max = parseInt(document.getElementById("max").value);
+            const liczbyZakres = document.getElementById("liczbyZakres");
+            let liczby=" ";
+            if (min >= max) {
+                alert("Wartość min musi być mniejsza niż wartość max.");
+                liczby="Wartość min musi być mniejsza niż wartość max.";
+            }else{
+                for(i = 0; i<=5; i++){
+                    liczby+=Math.floor(Math.random()*(max-min)+min)+", ";
+                }
+                document.getElementById("liczbyZakres").value=liczby;
+            }
+            
+        }
+            /* const wylosowaneLiczby = [];
+
+            while (wylosowaneLiczby.length < 6) {
+                const liczba = Math.floor(Math.random() * (max - min + 1)) + min;
+                if (!wylosowaneLiczby.includes(liczba)) {
+                    wylosowaneLiczby.push(liczba);
+                }
+            }
+
+            liczbyZakres.textContent = wylosowaneLiczby.join(", "); */
+        
+        
+    </script>
+</body>
+</html>
