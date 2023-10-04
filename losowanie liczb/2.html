@@ -25,10 +25,14 @@
                 alert("Wartość min musi być mniejsza niż wartość max.");
                 liczby="Wartość min musi być mniejsza niż wartość max.";
             }else{
-                for(i = 0; i<=5; i++){
-                    liczby+=Math.floor(Math.random()*(max-min)+min)+", ";
+                for(i = 1; i<=7; i++){
+                    liczbyZakres.insertAdjacentHTML('beforeend',Math.floor(Math.random()*(max-min)+min)+", ");
+                   // liczby+=Math.floor(Math.random()*(max-min)+min)+", ";
+                    if (i%3==0){
+                        liczbyZakres.insertAdjacentHTML('beforeend',"<br>")
+                    }
                 }
-                document.getElementById("liczbyZakres").value=liczby;
+               // document.getElementById("liczbyZakres").value=liczby;
             }
             
         }
