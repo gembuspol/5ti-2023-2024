@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        
+        body {
+            width: 90%;
+            max-width: 900px;
+            margin: 0 auto;
+            font:
+                0.9em/1.2 Arial,
+                Helvetica,
+                sans-serif;
+         background-image: url(cho.jpg) 
+            }
+   
+main{
+    display:flex; 
+}
+ .item{
+        padding: 1em;
+        }
+       
+            .one{
+                background: rgb(10, 119, 155);
+                width: 40%;
+            }
+
+            .two{
+                background: rgb(151, 48, 48);
+    width: 60%; 
+           }
+          
+            .three{
+                background: rgb(124, 124, 16);
+   width: 20%;
+            }
+
+            h1{
+                background-color: rgb(90, 82, 100);
+                width: 1600 px;
+                height: 50px;
+                text-align: center;
+                padding: 15px;
+
+            }
+
+            footer{
+                width: 100%;
+                background: rgb(0, 95, 0);
+                height: 40px;
+                text-align: center;
+                color: red;
+            }
+          
+nav{
+    text-align: right;
+
+}
+
+       </style>
+</head>
+<body>
+    <header>
+        <h1>
+            <img src="1.jpg" style="width: 50px; height: 50px;float: left;" >
+            <button onclick="zmienObraz()">Zmień obraz</button>
+            
+        </h1>
+    </header>
+    <section>   
+        <img src="3.jpg" style="width: 80%" id="zdjecieDuze">
+    </section>
+
+    <main>
+        <div class="item one">
+         
+        </div>
+        <div class="item two">
+            <img src="2.jpg" style="width: 100px; height: 100px;float: left;padding: 1em;" >
+            
+            
+    
+        </div>
+        
+        
+    </main>
+    <footer>
+        Autor MF
+    </footer>
+    <script>
+        function zmienObraz(){
+            let numer=Math.floor(Math.random()*5)+1;
+            document.getElementById("zdjecieDuze").src=numer+".jpg";
+        }
+    </script>
+    
+
+</body>
+</html>
