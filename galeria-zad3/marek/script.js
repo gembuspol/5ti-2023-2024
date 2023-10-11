@@ -1,3 +1,4 @@
+const gallery = document.querySelector('.gallery');
 function obraz(){
 
     const images = [
@@ -71,12 +72,13 @@ function obraz(){
     function closeImage() {
       displayedImage.style.display = 'none';
     }
+  }
 
     function scrollGallery(direction) {
       const scrollAmount = 300 * direction;
       gallery.scrollBy({ left: scrollAmount, behavior: 'smooth' });
     }
     
-  }
+  
   
 

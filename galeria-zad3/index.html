@@ -1,42 +1,160 @@
 <!DOCTYPE html>
+
 <html lang="pl">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Galeria zdjęć</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="script.js"></script>
-</head>
-<body>
-  <div class="container">
-    <button id="randomImageBtn" onclick="obraz()">Obraz na dziś</button>
-    <div class="imageContainer">
-      <img id="displayedImage" src="" alt="Obraz" />
-      <span class="closeBtn" id="closeBtn" onclick="closeImage()">x</span>
-    </div>
-    <div class="gallery">
-      <img src="image1.jpg" alt="Zdjęcie 1" />
-      <img src="image2.jpg" alt="Zdjęcie 2" />
-      <img src="image3.jpg" alt="Zdjęcie 3" />
-      <img src="image4.jpg" alt="Zdjęcie 4" />
-      <img src="image5.jpg" alt="Zdjęcie 5" />
-      <img src="image6.jpg" alt="Zdjęcie 6" />
-      <img src="image7.jpg" alt="Zdjęcie 7" />
-      <img src="image8.jpg" alt="Zdjęcie 8" />
-      <img src="image9.jpg" alt="Zdjęcie 9" />
-      <img src="image10.jpg" alt="Zdjęcie 10" />
-      <img src="image11.jpg" alt="Zdjęcie 11" />
-      <img src="claw.jpg" alt="Zdjęcie 12" />
-      <img src="Riverbed.jpg" alt="Zdjęcie 13" />
-      <img src="Targetglyph.jpg" alt="Zdjęcie 14" />
-      <img src="BlackSwirley.jpg" alt="Zdjęcie 15" />
-      <img src="turnaround.jpg" alt="Zdjęcie 16" />
-      <img src="longrange.jpg" alt="Zdjęcie 17" />
-    </div>
-    <button class="prevBtn" onclick="scrollGallery(-1)">Poprzednie</button>
-    <button class="nextBtn" onclick="scrollGallery(1)">Następne</button>
-  </div>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Zadanie, formatowanie obrazów</title>
+
+        <style>
+            body {
+                background-color: gray;
+                font-family: Arial, sans-serif;
+            }
+            img#mainImage {
+                width: 80%;
+                margin: 0 auto;
+                display: block;
+                margin-top: 20px;
+            }
+            button {
+                display: flex;
+            }
+            #overlay {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0,0,0,0.8);
+                display: none;
+                justify-content: center;
+                align-items: center;
+            }
+            #overlay img {
+                max-width: 90%;
+                max-height: 90%;
+            }
+            #thumbnails{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .thumbnail {
+                width: 10%;
+                margin: 1%;
+                cursor: pointer;
+                transition: opacity 0.3s;
+            }
+            .thumbnail:hover {
+                opacity: 0.7;
+            }
+            #prevButton{
+                position: absolute;
+                left: 20px;
+            }
+            #nextButton{
+                position: absolute;
+                right: 20px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <button onclick="loadRandomImage()">Zmiana obrazu</button>
+        <img id="mainImage" src="#" alt="Wybrane zdjęcie">
+
+        <div id="thumbnails">
+        </div>
+            <button id="prevButton">Poprzednie</button>
+            <button id="nextButton">Następne</button>
+
+        <div id="overlay" onclick="closeImage()">
+            <img id="overlayImage" src="#" alt="Powiększone zdjęcie">
+        </div>
+
+        <script>
+            const images = [
+                '1.jpg',
+                '2.jpg',
+                '3.jpg',
+                '4.jpg',
+                '5.jpg',
+                '6.jpg',
+                '7.jpg',
+                '8.jpg',
+                '9.jpg',
+                '10.jpg',
+            ];
+
+                function loadRandomImage() {
+                    const randomIndex = Math.floor(Math.random() * images.length);
+                    const selectedImage = images[randomIndex];
+                    document.getElementById('mainImage').src = selectedImage;
+                }
+
+                let thumbnailCount = 0;
+                let currentImageIndex = 0;
+
+                function displayThumbnail(imageSrc) {
+                    const thumbnailContainer = document.getElementById('thumbnails');
+                    const thumbnail = document.createElement('img');
+                    thumbnail.src = imageSrc;
+                    thumbnail.className = 'thumbnail';
+                    thumbnail.onclick = function() {
+                        openImage(imageSrc);
+                    };
+                    thumbnailContainer.appendChild(thumbnail);
+                    thumbnailCount++;
+                }
+
+                function updateThumbnails() {
+                    const thumbnailContainer = document.getElementById('thumbnails');
+                    thumbnailContainer.innerHTML = '';
+
+                    for (let i = currentImageIndex; i < currentImageIndex + 6 && i < images.length; i++) {
+                        displayThumbnail(images[i]);
+                    }
+                }
+
+                document.getElementById('prevButton').addEventListener('click', function() {
+                    if (currentImageIndex > 0) {
+                        currentImageIndex -= 6;
+                        updateThumbnails();
+                    }
+                });
+
+                        document.addEventListener('DOMContentLoaded', function() {
+            // Wywołaj funkcję, aby początkowo wyświetlić tylko 6 obrazów
+            updateThumbnails();
+
+            // Dodaj obsługę przycisku zmiany obrazu po załadowaniu strony
+            document.getElementById('nextButton').addEventListener('click', function() {
+                if (currentImageIndex + 6 < images.length) {
+                    currentImageIndex += 6;
+                    updateThumbnails();
+                }
+            });
+        });
 
 
-</body>
+                updateThumbnails();
+
+            function openImage(imageSrc) {
+                const overlay = document.getElementById('overlay');
+                const overlayImage = document.getElementById('overlayImage');
+                overlayImage.src = imageSrc;
+                overlay.style.display = 'flex';
+            }
+
+            function closeImage() {
+                document.getElementById('overlay').style.display = 'none';
+            }
+
+            loadRandomImage();
+
+            images.forEach(displayThumbnail);
+        </script>
+    </body>
 </html>
