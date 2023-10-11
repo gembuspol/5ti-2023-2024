@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galeria zdjęć</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js"></script>
+</head>
+<body>
+  <div class="container">
+    <button id="randomImageBtn" onclick="obraz()">Obraz na dziś</button>
+    <div class="imageContainer">
+      <img id="displayedImage" src="" alt="Obraz" />
+      <span class="closeBtn" id="closeBtn" onclick="closeImage()">x</span>
+    </div>
+    <div class="gallery">
+      <img src="image1.jpg" alt="Zdjęcie 1" />
+      <img src="image2.jpg" alt="Zdjęcie 2" />
+      <img src="image3.jpg" alt="Zdjęcie 3" />
+      <img src="image4.jpg" alt="Zdjęcie 4" />
+      <img src="image5.jpg" alt="Zdjęcie 5" />
+      <img src="image6.jpg" alt="Zdjęcie 6" />
+      <img src="image7.jpg" alt="Zdjęcie 7" />
+      <img src="image8.jpg" alt="Zdjęcie 8" />
+      <img src="image9.jpg" alt="Zdjęcie 9" />
+      <img src="image10.jpg" alt="Zdjęcie 10" />
+      <img src="image11.jpg" alt="Zdjęcie 11" />
+      <img src="claw.jpg" alt="Zdjęcie 12" />
+      <img src="Riverbed.jpg" alt="Zdjęcie 13" />
+      <img src="Targetglyph.jpg" alt="Zdjęcie 14" />
+      <img src="BlackSwirley.jpg" alt="Zdjęcie 15" />
+      <img src="turnaround.jpg" alt="Zdjęcie 16" />
+      <img src="longrange.jpg" alt="Zdjęcie 17" />
+    </div>
+    <button class="prevBtn" onclick="scrollGallery(-1)">Poprzednie</button>
+    <button class="nextBtn" onclick="scrollGallery(1)">Następne</button>
+  </div>
+
+
+</body>
+</html>
