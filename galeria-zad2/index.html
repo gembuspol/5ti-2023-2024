@@ -1,0 +1,166 @@
+<!--
+<!DOCTYPE html>
+
+<html lang="pl">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Zadanie, formatowanie obrazów</title>
+        <style>
+            body{
+                background-color: gray;
+            }
+            img#mainImage {
+                width: 80%;
+                margin: 0 auto;
+                display: block;
+                margin-top: 20px;
+            }
+            button {
+                display: flex;
+            }
+        </style>
+    </head>
+
+
+
+    <body>
+        <button onclick="loadRandomImage()">Zmiana obrazu</button>
+        <img id="mainImage" src="#" alt="Wybrane zdjęcie">
+
+        <script>
+            const images = [
+                '1.jpg',
+                '2.jpg',
+                '3.jpg',
+                '4.jpg',
+                '5.jpg',
+                '6.jpg',
+                '7.jpg',
+                '8.jpg',
+                '9.jpg',
+                '10.jpg',
+            ];
+
+            function loadRandomImage() {
+                const randomIndex = Math.floor(Math.random() * images.length);
+                const selectedImage = images[randomIndex];
+                document.getElementById('mainImage').src = selectedImage;
+            }
+
+            loadRandomImage();
+        </script>
+    </body>
+</html>
+-->
+
+
+
+<!DOCTYPE html>
+
+<html lang="pl">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Zadanie, formatowanie obrazów</title>
+
+        <style>
+            body {
+                background-color: gray;
+                font-family: Arial, sans-serif;
+            }
+            img#mainImage {
+                width: 80%;
+                margin: 0 auto;
+                display: block;
+                margin-top: 20px;
+            }
+            button {
+                display: flex;
+            }
+            #overlay {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0,0,0,0.8);
+                display: none;
+                justify-content: center;
+                align-items: center;
+            }
+            #overlay img {
+                max-width: 90%;
+                max-height: 90%;
+            }
+            .thumbnail {
+                width: 10%;
+                margin: 1%;
+                cursor: pointer;
+                transition: opacity 0.3s;
+            }
+            .thumbnail:hover {
+                opacity: 0.7;
+            }
+        </style>
+    </head>
+
+    <body>
+        <button onclick="loadRandomImage()">Zmiana obrazu</button>
+        <img id="mainImage" src="#" alt="Wybrane zdjęcie">
+
+        <div id="thumbnails"></div>
+
+        <div id="overlay" onclick="closeImage()">
+            <img id="overlayImage" src="#" alt="Powiększone zdjęcie">
+        </div>
+
+        <script>
+            const images = [
+                '1.jpg',
+                '2.jpg',
+                '3.jpg',
+                '4.jpg',
+                '5.jpg',
+                '6.jpg',
+                '7.jpg',
+                '8.jpg',
+                '9.jpg',
+                '10.jpg',
+            ];
+
+            function loadRandomImage() {
+                const randomIndex = Math.floor(Math.random() * images.length);
+                const selectedImage = images[randomIndex];
+                document.getElementById('mainImage').src = selectedImage;
+            }
+
+            function displayThumbnail(imageSrc) {
+                const thumbnailContainer = document.getElementById('thumbnails');
+                const thumbnail = document.createElement('img');
+                thumbnail.src = imageSrc;
+                thumbnail.className = 'thumbnail';
+                thumbnail.onclick = function() {
+                    openImage(imageSrc);
+                };
+                thumbnailContainer.appendChild(thumbnail);
+            }
+
+            function openImage(imageSrc) {
+                const overlay = document.getElementById('overlay');
+                const overlayImage = document.getElementById('overlayImage');
+                overlayImage.src = imageSrc;
+                overlay.style.display = 'flex';
+            }
+
+            function closeImage() {
+                document.getElementById('overlay').style.display = 'none';
+            }
+
+            loadRandomImage();
+
+            images.forEach(displayThumbnail);
+        </script>
+    </body>
+</html>
