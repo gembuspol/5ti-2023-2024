@@ -36,9 +36,12 @@
 		<tbody>
 			<tr>
 				<td>1 <br></td>
-				<td>&nbsp;</td>
-				<td>&nbsp;</td>
-				<td>&nbsp;</td>
+				<td>
+					<input type="number" id="kwotaBrutto">
+					<button onclick="liczNetto()">Oblicz wynik</button>
+				</td>
+				<td id="wynik1">&nbsp;</td>
+				<td id="wynik2">&nbsp;</td>
 			</tr>
 			<tr>
 				<td>&nbsp;2</td>
@@ -63,5 +66,14 @@
 			</tr>
 		</tbody>
 	</table>
+	<script>
+		function liczNetto(){
+			let brutto=parseFloat(document.getElementById("kwotaBrutto").value);
+			let netto=brutto/1.23;
+			let vat=netto*0.23;
+			document.getElementById("wynik1").innerHTML=netto;
+			document.getElementById("wynik2").innerHTML=vat;
+		}
+	</script>
 </body>
 </html>
