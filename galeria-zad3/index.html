@@ -113,14 +113,14 @@
                     const thumbnailContainer = document.getElementById('thumbnails');
                     thumbnailContainer.innerHTML = '';
 
-                    for (let i = currentImageIndex; i < currentImageIndex + 6 && i < images.length; i++) {
+                    for (let i = currentImageIndex; i < currentImageIndex + 5 && i < images.length; i++) {
                         displayThumbnail(images[i]);
                     }
                 }
 
                 document.getElementById('prevButton').addEventListener('click', function() {
                     if (currentImageIndex > 0) {
-                        currentImageIndex -= 6;
+                        currentImageIndex -= 5;
                         updateThumbnails();
                     }
                 });
@@ -131,8 +131,8 @@
 
             // Dodaj obsługę przycisku zmiany obrazu po załadowaniu strony
             document.getElementById('nextButton').addEventListener('click', function() {
-                if (currentImageIndex + 6 < images.length) {
-                    currentImageIndex += 6;
+                if (currentImageIndex + 5 < images.length) {
+                    currentImageIndex += 5;
                     updateThumbnails();
                 }
             });
