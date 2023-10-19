@@ -45,8 +45,17 @@
 			</tr>
 			<tr>
 				<td>&nbsp;2</td>
-				<td>&nbsp;</td>
-				<td colspan="2">&nbsp;</td>
+				<td>&nbsp;
+					<select id="wybor" onchange="osoby(this.selectedIndex)">
+						<option>Dominik Kupczak</option>
+						<option>Wojtek Matyszewski</option>
+						<option>Dominik Buczkowski</option>
+						<option>Kacper Buchta</option>
+						<option>Łukasz Milewski</option>
+						<option>ukasz Krupa</option>
+					</select>
+				</td>
+				<td colspan="2" id="wynik3">&nbsp;</td>
 
 			</tr>
 			<tr>
@@ -73,6 +82,11 @@
 			let vat=netto*0.23;
 			document.getElementById("wynik1").innerHTML=netto;
 			document.getElementById("wynik2").innerHTML=vat;
+		}
+		function osoby(numerWybranegoElementu){
+			if(numerWybranegoElementu==0){
+				document.getElementById("wynik3").innerHTML=(300*numerWybranegoElementu+200)/250;
+			}
 		}
 	</script>
 </body>
