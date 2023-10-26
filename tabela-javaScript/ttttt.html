@@ -60,13 +60,17 @@
 			</tr>
 			<tr>
 				<td>&nbsp;3</td>
-				<td rowspan="2">&nbsp;</td>
-				<td>&nbsp;</td>
+				<td rowspan="2">
+					<input type="number" id="kolor">
+					<button onclick="zmienKolor()">Zmień Kolor</button>
+				</td>
+				<td id="kom1">1</td>
+				<td id="kom2">2</td>
 			</tr>
 			<tr>
 				<td>4 <br></td>
-				<td><br></td>
-				<td>&nbsp;</td>
+				<td id="kom3">3</td>
+				<td id="kom4">4</td>
 			</tr>
 			<tr>
 				<td>5 <br></td>
@@ -87,6 +91,13 @@
 			if(numerWybranegoElementu==0){
 				document.getElementById("wynik3").innerHTML=(300*numerWybranegoElementu+200)/250;
 			}
+		}
+		function zmienKolor(){
+			let kolor=document.getElementById("kolor").value;
+			document.getElementById("kom1").style.background='hsl('+kolor+', 100%, 40%)';
+			document.getElementById("kom2").style.background='hsl('+kolor+', 100%, 70%)';
+			document.getElementById("kom3").style.background='hsl('+kolor+20+', 100%, 50%)';
+			document.getElementById("kom4").style.background='hsl('+kolor+20+', 100%, 80%)';
 		}
 	</script>
 </body>
